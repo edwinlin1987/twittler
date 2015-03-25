@@ -1,0 +1,151 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* -------------------------------------------------------
+
+Post Reset Modifications
+
+------------------------------------------------------- */
+
+
+/* clearfix */
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* content */
+
+body {
+  font: 28px/32px "Comic Sans Ms";
+  background: #f1f1f1;
+}
+
+header {
+  background-image: url("file:///Users/edwin/Documents/git_tutorial/work/2015-05-twittler/assets/photos/desk.jpg");
+  background-size: cover;
+  width: auto;
+  height: 400px;
+  padding: 10px;
+
+  border-bottom: 10px solid #fff;
+}
+
+#logo {
+  position: fixed;
+  left: 90px;
+  top: 100px;
+  color: #000;
+  font: 78px/90px "Helvetica";
+  height: 90px;
+  width: 300px;
+  font-variant: small-caps;
+  background: -webkit-linear-gradient(left top, #fff , #ADD8E6, #fff); /* For Safari 5.1 to 6.0 */
+       background: -o-linear-gradient(bottom right, #fff, #ADD8E6, #fff); /* For Opera 11.1 to 12.0 */
+     background: -moz-linear-gradient(bottom right, #fff, #ADD8E6, #fff); /* For Firefox 3.6 to 15 */
+          background: linear-gradient(to bottom right, #fff , #ADD8E6, #fff);
+  text-align: center;
+  border-radius: 45px;
+}
+
+#profile {
+  position: fixed;
+  top: 150px;
+  left: 0;
+  color: #000;
+  float: left;
+  background: #ADD8E6;
+  width: 350px;
+  height: 600px;
+  margin: 50px;
+  box-shadow: 10px 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+section img {
+  display: block;
+  margin: 30px auto;
+}
+
+article {
+  border: 10px solid #fff;
+  margin: 20px auto;
+  width: 500px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 10px 10px;
+}
+
+.user {
+  display: inline-block;
+  font-weight: 600;
+  border: 1px solid #000;
+  padding: 10px;
+  width: 350px;
+  border-radius: 15px;
+  background: #ccf2ff;
+
+}
+
+.date {
+  float: right;
+  font: 12px/14px arial;
+  margin: 10px;
+  color: #d3d3d3;
+
+}
+
+.msg {
+  font: 20px/24px arial;
+  padding: 15px;
+  height: 80px;
+}
+
+

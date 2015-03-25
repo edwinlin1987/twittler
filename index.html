@@ -1,24 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Twittler</title>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
   </head>
   <body>
     <script>
+      function twittler (i) {
+        var d = new Date();
+        var ampm = 'am';
+        var $tweet = $('<article></article>');
+        var $tweetuser = $('<div class="user"></div>');
+        var $tweetmsg = $('<div class="msg"></div>');
+        var $date = $('<div class="date"></div>');
+        if (d.getHours() > 12) {
+          ampm = 'pm';
+        }
+        $date.text((d.getHours() % 12) + ':' + d.getMinutes() + ampm + '    ' + (d.getMonth()+1) + '/' + (d.getDate()+1) + '/' + d.getFullYear());
+        $tweetuser.text('@' + i.user);
+        $tweetmsg.text(i.message);
+        $tweetuser.appendTo($tweet);
+        $date.appendTo($tweet);
+        $tweetmsg.appendTo($tweet);
+        return $tweet;
+      }
 
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
 
+        // Header
+        var $header = $('<header class="group"></header>');
+        $header.appendTo($body);
+        $('<div id="logo">twittler</div>').appendTo($body);
+
+        var $profile = $('<section id="profile"><img class="group" src="assets/photos/profile.png"></section');
+        var line = '<div id="info"></div>';
+        var $name = $(line);
+        var $birth = $(line);
+        var $location = $(line);
+        var $other = $(line);
+        $name.text("User");
+        $birth.text("Birthdate:");
+        $location.text("Location:");
+        $other.text("Other information:");
+        $name.appendTo($profile);
+        $birth.appendTo($profile);
+        $location.appendTo($profile);
+        $other.appendTo($profile);
+        $profile.appendTo($body);
+
+        
         var index = streams.home.length - 1;
+        var check = index;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet = twittler(tweet);
           $tweet.appendTo($body);
           index -= 1;
         }
+        setInterval(function() {
+          var index = streams.home.length - 1;
+          while (check < index) {
+            var tweet = streams.home[check];
+            $twitt = twittler(tweet);
+            $twitt.appendTo($body);
+            check++;
+          }
+        }, 1000);
 
       });
 
