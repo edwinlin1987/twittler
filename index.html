@@ -8,23 +8,46 @@
   </head>
   <body>
     <script>
+      streams.users.visitor = [];
+
+
       function twittler (i) {
         var d = new Date();
+        var hour = d.getHours();
         var ampm = 'am';
         var $tweet = $('<article></article>');
-        var $tweetuser = $('<div class="user"></div>');
+        var $tweetuser = $('<div class="user" id="button"></div>');
         var $tweetmsg = $('<div class="msg"></div>');
         var $date = $('<div class="date"></div>');
-        if (d.getHours() > 12) {
+        if (hour >= 12) {
           ampm = 'pm';
+          if (hour > 12) { hour = hour % 12 }
         }
-        $date.text((d.getHours() % 12) + ':' + d.getMinutes() + ampm + '    ' + (d.getMonth()+1) + '/' + (d.getDate()+1) + '/' + d.getFullYear());
-        $tweetuser.text('@' + i.user);
+        $date.text(hour + ':' + d.getMinutes() + ampm + '    ' + (d.getMonth()+1) + '/' + (d.getDate()) + '/' + d.getFullYear());
+        $tweetuser.text(i.user);
         $tweetmsg.text(i.message);
         $tweetuser.appendTo($tweet);
         $date.appendTo($tweet);
         $tweetmsg.appendTo($tweet);
         return $tweet;
+      }
+      function timeline (i) {
+        var hour = i.created_at.getHours();
+        var ampm = 'am';
+        var seconds = ((new Date()).getTime() - i.created_at.getTime())/1000;
+        var hours = Math.floor(seconds / 360);
+        var minutes = Math.floor((seconds % 360) / 60);
+        var seconds = Math.floor((seconds % 360) % 60);
+        var $tlmsg = $('<div class="tlmsg"></div>');
+        $tlmsg.text(i.message);
+        var $tldate = $('<div class="tldate"></div>');
+        if (hour >= 12) {
+          ampm = 'pm';
+          if (hour > 12) {hour = hour % 12}
+        }
+        $tldate.text('posted ' + hours + ' hours, ' + minutes + ' minutes, and ' + seconds + ' seconds ago at ' + hour + ':' + i.created_at.getMinutes() + ampm+  '    ' + (i.created_at.getMonth()+1) + '/' + (i.created_at.getDate()) + '/' + i.created_at.getFullYear());
+        $tldate.appendTo($tlmsg);
+        return $tlmsg;
       }
 
       $(document).ready(function(){
@@ -36,13 +59,14 @@
         $header.appendTo($body);
         $('<div id="logo">twittler</div>').appendTo($body);
 
+        // Profile
         var $profile = $('<section id="profile"><img class="group" src="assets/photos/profile.png"></section');
         var line = '<div id="info"></div>';
         var $name = $(line);
         var $birth = $(line);
         var $location = $(line);
         var $other = $(line);
-        $name.text("User");
+        $name.text("Visitor");
         $birth.text("Birthdate:");
         $location.text("Location:");
         $other.text("Other information:");
@@ -52,24 +76,56 @@
         $other.appendTo($profile);
         $profile.appendTo($body);
 
-        
+        var $form = $('<form><div><textarea id="form" name="message" placeholder="Write your message here!" required></textarea><input class="twit" type="submit" value="Twittler!"></div></form>');
+        $form.appendTo($body);
+
+        $tweets = $('<section class="tweets"></section>');
+        $tweets.appendTo($body);
+        // Initial tweets check
         var index = streams.home.length - 1;
         var check = index;
         while(index >= 0){
           var tweet = streams.home[index];
           $tweet = twittler(tweet);
-          $tweet.appendTo($body);
+          $tweet.prependTo($tweets);
           index -= 1;
         }
+
+        // Subsequent tweets check - every second.
         setInterval(function() {
           var index = streams.home.length - 1;
           while (check < index) {
             var tweet = streams.home[check];
-            $twitt = twittler(tweet);
-            $twitt.appendTo($body);
+            $tweet = twittler(tweet);
+            $tweet.prependTo($tweets);
             check++;
           }
+          debugger;
+          writeTweet("hello");
         }, 1000);
+
+        // Button
+        $('.user').on("click", function() {
+          $('.timeline').remove();
+          var $timeline = $('<div class="timeline"></div>');
+          $timeline.appendTo($body);
+          var name = $(this).text();
+          $timeline.text('@'+ name + "'s timeline");
+          var userIndex = streams.users[name].length - 1;
+          while(userIndex >= 0){
+            var tweet = streams.users[name][userIndex];
+            $tweet = timeline(tweet);
+            $tweet.appendTo($timeline);
+            userIndex -= 1;
+          }
+        });
+
+        // Tweeting
+        $('form').on('submit', function(){
+          var x = document.getElementByID('form');
+          writeTweet("hello");
+        });
+
 
       });
 

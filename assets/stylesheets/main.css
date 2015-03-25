@@ -67,6 +67,9 @@ body {
   background: #f1f1f1;
 }
 
+
+/* Header */
+
 header {
   background-image: url("file:///Users/edwin/Documents/git_tutorial/work/2015-05-twittler/assets/photos/desk.jpg");
   background-size: cover;
@@ -76,6 +79,8 @@ header {
 
   border-bottom: 10px solid #fff;
 }
+
+/* Logo */
 
 #logo {
   position: fixed;
@@ -93,6 +98,35 @@ header {
   text-align: center;
   border-radius: 45px;
 }
+
+#logo:hover {
+  background: -webkit-linear-gradient(left top, #ADD8E6 , #fff, #ADD8E6); /* For Safari 5.1 to 6.0 */
+       background: -o-linear-gradient(bottom right, #ADD8E6, #fff, #ADD8E6); /* For Opera 11.1 to 12.0 */
+     background: -moz-linear-gradient(bottom right, #ADD8E6, #fff, #ADD8E6); /* For Firefox 3.6 to 15 */
+          background: linear-gradient(to bottom right, #ADD8E6 , #fff, #ADD8E6);
+}
+
+
+
+
+
+/* Form */
+
+#form {
+  display: block;
+  height: 150px;
+  width: 500px;
+  margin: auto;
+  border-radius: 15px;
+  font: 16px/18px arial;
+}
+
+.twit {
+  display: block;
+  margin: auto;
+}
+
+/* Profile */
 
 #profile {
   position: fixed;
@@ -114,6 +148,12 @@ section img {
   margin: 30px auto;
 }
 
+/* Tweets */
+.tweets {
+  width: auto;
+  height: auto;
+}
+
 article {
   border: 10px solid #fff;
   margin: 20px auto;
@@ -131,7 +171,10 @@ article {
   width: 350px;
   border-radius: 15px;
   background: #ccf2ff;
+}
 
+.user:hover {
+  background: #98fb98;
 }
 
 .date {
@@ -147,5 +190,39 @@ article {
   padding: 15px;
   height: 80px;
 }
+
+/* Timeline */
+
+.timeline {
+  position: fixed;
+  top: 150px;
+  right: 0;
+  color: #000;
+  background: #ADD8E6;
+  width: 350px;
+  height: 600px;
+  margin: 50px;
+  box-shadow: 10px 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  z-index: 50;
+  overflow: auto;
+  font: 24px/28px "Lucida Grande";
+}
+
+.tlmsg {
+  border: 10px solid #fff;
+  margin: 20px auto;
+  width: 300px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 10px 10px;
+  font: 20px/24px arial;
+}
+
+.tldate {
+  font: 10px/12px arial;
+}
+
 
 
