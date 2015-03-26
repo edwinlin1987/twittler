@@ -83,7 +83,7 @@ header {
 /* Logo */
 
 #logo {
-  position: fixed;
+  position: absolute;
   left: 90px;
   top: 100px;
   color: #000;
@@ -112,7 +112,7 @@ header {
 
 /* Form */
 
-#form {
+#fillin {
   display: block;
   height: 150px;
   width: 500px;
