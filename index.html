@@ -57,8 +57,11 @@
 
         // Header
         var $header = $('<header class="group"></header>');
+        $('<div class="overlay"></div>').appendTo($header);
+        $('<div class="diamond"></div>').appendTo($header);
+        $('<div id="logo">twittler</div>').appendTo($header);
+        $('<div id="slogan">THOUGHTS, STORIES, AND IDEAS</div>').appendTo($header);
         $header.appendTo($body);
-        $('<div id="logo">twittler</div>').appendTo($body);
 
         // Profile
         var $profile = $('<section id="profile"><img class="group" src="assets/photos/profile.png"></section');
@@ -103,10 +106,26 @@
             $tweet.prependTo($tweets);
             check++;
           }
-        }, 1000);
+          $('.user').on("click", function() {
+            event.preventDefault();
+            $('.timeline').remove();
+            var $timeline = $('<div class="timeline"></div>');
+            $timeline.appendTo($body);
+            var name = $(this).text();
+            $timeline.text('@'+ name + "'s timeline");
+            var userIndex = streams.users[name].length - 1;
+            while(userIndex >= 0){
+              var tweet = streams.users[name][userIndex];
+              $tweet = timeline(tweet);
+              $tweet.appendTo($timeline);
+              userIndex -= 1;
+            }
+          });
+        }, 5000);
 
         // Button
         $('.user').on("click", function() {
+          event.preventDefault();
           $('.timeline').remove();
           var $timeline = $('<div class="timeline"></div>');
           $timeline.appendTo($body);

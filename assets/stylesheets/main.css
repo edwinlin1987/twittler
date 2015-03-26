@@ -63,7 +63,7 @@ Post Reset Modifications
 /* content */
 
 body {
-  font: 28px/32px "Comic Sans Ms";
+  font: 28px/32px "Helvetica Neue";
   background: #f1f1f1;
 }
 
@@ -74,36 +74,61 @@ header {
   background-image: url("file:///Users/edwin/Documents/git_tutorial/work/2015-05-twittler/assets/photos/desk.jpg");
   background-size: cover;
   width: auto;
-  height: 400px;
-  padding: 10px;
+  height: 550px;
 
   border-bottom: 10px solid #fff;
 }
 
+.overlay {
+  background: -webkit-linear-gradient(left top, #d38312 , #1299D3); /* For Safari 5.1 to 6.0 */
+       background: -o-linear-gradient(bottom right, #d38312, #1299D3); /* For Opera 11.1 to 12.0 */
+     background: -moz-linear-gradient(bottom right, #d38312, #1299D3); /* For Firefox 3.6 to 15 */
+       background: linear-gradient(to bottom right, #d38312, #1299D3);
+  opacity: 0.5;
+  width: auto;
+  height: 550px;
+}
+
+
+
 /* Logo */
 
 #logo {
-  position: absolute;
-  left: 90px;
-  top: 100px;
-  color: #000;
-  font: 78px/90px "Helvetica";
-  height: 90px;
-  width: 300px;
+  position: relative;
+  top: -950px;
+  margin: 0 auto;
+  color: #fff;
+  font: 120px/80px "Helvetica Neue";
+  height: 100px;
+  width: 420px;
   font-variant: small-caps;
-  background: -webkit-linear-gradient(left top, #fff , #ADD8E6, #fff); /* For Safari 5.1 to 6.0 */
-       background: -o-linear-gradient(bottom right, #fff, #ADD8E6, #fff); /* For Opera 11.1 to 12.0 */
-     background: -moz-linear-gradient(bottom right, #fff, #ADD8E6, #fff); /* For Firefox 3.6 to 15 */
-          background: linear-gradient(to bottom right, #fff , #ADD8E6, #fff);
   text-align: center;
-  border-radius: 45px;
+  background: none;
+  border: 1px solid #fff;
 }
 
-#logo:hover {
-  background: -webkit-linear-gradient(left top, #ADD8E6 , #fff, #ADD8E6); /* For Safari 5.1 to 6.0 */
-       background: -o-linear-gradient(bottom right, #ADD8E6, #fff, #ADD8E6); /* For Opera 11.1 to 12.0 */
-     background: -moz-linear-gradient(bottom right, #ADD8E6, #fff, #ADD8E6); /* For Firefox 3.6 to 15 */
-          background: linear-gradient(to bottom right, #ADD8E6 , #fff, #ADD8E6);
+#slogan {
+  position: relative;
+  top: -930px;
+  margin: 0 auto;
+  font: 20px/40px "Helvetica Neue";
+  text-align: center;
+  color: #d5d5d5;
+
+}
+
+
+.diamond {
+  margin:  100px auto;
+  position: relative;
+  top: -550px;
+  background: #f2664f;
+      -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg); 
+          transform: rotate(45deg);
+  height: 300px;
+  width: 300px;
+  opacity: .9;
 }
 
 
@@ -118,7 +143,7 @@ header {
   width: 500px;
   margin: auto;
   border-radius: 15px;
-  font: 16px/18px arial;
+  font: 16px/18px "Helvetica Neue";
 }
 
 .twit {
@@ -130,6 +155,7 @@ header {
 
 #profile {
   position: fixed;
+  padding: 10px;
   top: 150px;
   left: 0;
   color: #000;
@@ -138,8 +164,7 @@ header {
   width: 350px;
   height: 600px;
   margin: 50px;
-  box-shadow: 10px 10px;
-  border: 1px solid #000;
+  box-shadow: 3px 3px #d3d3d3;
   border-radius: 5px;
 }
 
@@ -160,7 +185,7 @@ article {
   width: 500px;
   border-radius: 15px;
   background: #fff;
-  box-shadow: 10px 10px;
+  box-shadow: 5px 5px #d3d3d3;
 }
 
 .user {
@@ -179,14 +204,14 @@ article {
 
 .date {
   float: right;
-  font: 12px/14px arial;
+  font: 12px/14px "Helvetica Neue";
   margin: 10px;
   color: #d3d3d3;
 
 }
 
 .msg {
-  font: 20px/24px arial;
+  font: 20px/24px "Helvetica Neue";
   padding: 15px;
   height: 80px;
 }
@@ -202,12 +227,11 @@ article {
   width: 350px;
   height: 600px;
   margin: 50px;
-  box-shadow: 10px 10px;
-  border: 1px solid #000;
+  box-shadow: 3px 3px #d3d3d3;
   border-radius: 5px;
   z-index: 50;
   overflow: auto;
-  font: 24px/28px "Lucida Grande";
+  font: 24px/28px;
 }
 
 .tlmsg {
@@ -217,11 +241,11 @@ article {
   border-radius: 15px;
   background: #fff;
   box-shadow: 10px 10px;
-  font: 20px/24px arial;
+  font: 20px/24px "Helvetica Neue";
 }
 
 .tldate {
-  font: 10px/12px arial;
+  font: 10px/12px "Helvetica Neue";
 }
 
 
