@@ -141,9 +141,10 @@ header {
   display: block;
   height: 150px;
   width: 500px;
-  margin: auto;
+  margin: 20px auto;
   border-radius: 15px;
   font: 16px/18px "Helvetica Neue";
+
 }
 
 .twit {
@@ -154,16 +155,16 @@ header {
 /* Profile */
 
 #profile {
-  position: fixed;
+  position: absolute;
   padding: 10px;
-  top: 150px;
+  top: 400px;
   left: 0;
   color: #000;
   float: left;
   background: #ADD8E6;
   width: 350px;
   height: 600px;
-  margin: 50px;
+  margin: 20px;
   box-shadow: 3px 3px #d3d3d3;
   border-radius: 5px;
 }
